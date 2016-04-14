@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+ 
+<config>
+    <modules>
+        <BIC_Mediclub>
+            <version>0.1.0</version>
+        </BIC_Mediclub>
+    </modules>
+</config>
