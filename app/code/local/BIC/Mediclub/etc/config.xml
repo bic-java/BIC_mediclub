@@ -6,4 +6,15 @@
             <version>0.1.0</version>
         </BIC_Mediclub>
     </modules>
+    <frontend>
+        <routers>
+            <BIC_Mediclub_SomeFreeRouterName1>
+                <use>standard</use>
+                <args>
+                    <module>BIC_Mediclub</module>
+                    <frontName>bic-mediclub</frontName>
+                </args>
+            </BIC_Mediclub_SomeFreeRouterName1>
+        </routers>
+    </frontend>    
 </config>
