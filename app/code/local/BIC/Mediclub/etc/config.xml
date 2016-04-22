@@ -3,9 +3,63 @@
 <config>
     <modules>
         <BIC_Mediclub>
-            <version>0.1.0</version>
+            <version>0.0.1</version>
         </BIC_Mediclub>
     </modules>
+    <global>
+        <helpers>
+            <confirm_order_sms>
+                <class>BIC_Mediclub_ConfirmOrderSms_Helper</class>
+            </confirm_order_sms>
+        </helpers>
+        <models>
+            <BIC_Mediclub_ConfirmOrderSms>
+                <class>BIC_Mediclub_ConfirmOrderSms_Model</class>
+            </BIC_Mediclub_ConfirmOrderSms>
+        </models>
+        <events>
+            <sales_order_place_after>
+                <observers>
+                    <BIC_Mediclub>
+                        <class>BIC_Mediclub/observer</class>
+                        <method>confirmOrder</method>
+                    </BIC_Mediclub>
+                </observers>
+            </sales_order_place_after>
+        </events>
+        <resources>
+            <BIC_Mediclub_setup>
+                <setup>
+                    <module>BIC_Mediclub</module>
+                    <class>Mage_Customer_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </BIC_Mediclub_setup>
+            <BIC_Mediclub_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </BIC_Mediclub_write>
+            <BIC_Mediclub_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </BIC_Mediclub_read>
+        </resources>
+        <events> 
+            <sales_order_payment_pay>
+                <observers>
+                    <BIC_Mediclub_observer>
+                        <type>model</type>
+                        <class>BIC_Mediclub_Model_ConfirmObserver</class>
+                        <method>confirmOrder</method>
+                    </BIC_Mediclub_observer>
+                </observers>
+            </sales_order_payment_pay>
+        </events>
+    </global>
     <frontend>
         <routers>
             <BIC_Mediclub_SomeFreeRouterName1>
@@ -16,5 +70,38 @@
                 </args>
             </BIC_Mediclub_SomeFreeRouterName1>
         </routers>
-    </frontend>    
+        <events>
+            <!--            
+            <checkout_cart_update_items_after>
+                <observers>
+                    <BIC_Mediclub_observer>
+                        <type>model</type>
+                        <class>BIC_Mediclub_Model_Observer</class>
+                        <method>customerLogin</method>
+                    </BIC_Mediclub_observer>
+                </observers>
+            </checkout_cart_update_items_after>
+            -->
+                        
+            <!--            <checkout_cart_update_items_after>
+                <observers>
+                    <BIC_Mediclub_observer>
+                        <type>model</type>
+                        <class>BIC_Mediclub_Model_ConfirmObserver</class>
+                        <method>confirmOrder</method>
+                    </BIC_Mediclub_observer>
+                </observers>
+            </checkout_cart_update_items_after>-->
+            
+<!--            <sales_order_payment_pay>
+                <observers>
+                    <BIC_Mediclub_observer>
+                        <type>model</type>
+                        <class>BIC_Mediclub_Model_ConfirmObserver</class>
+                        <method>confirmOrder</method>
+                    </BIC_Mediclub_observer>
+                </observers>
+            </sales_order_payment_pay>-->
+        </events>
+    </frontend>
 </config>
