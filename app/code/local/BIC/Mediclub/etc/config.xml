@@ -18,14 +18,25 @@
             </BIC_Mediclub_ConfirmOrderSms>
         </models>
         <events>
-            <sales_order_place_after>
+            <checkout_cart_update_items_after>
                 <observers>
-                    <BIC_Mediclub>
-                        <class>BIC_Mediclub/observer</class>
-                        <method>confirmOrder</method>
-                    </BIC_Mediclub>
+                    <BIC_Mediclub_observer>
+                        <type>model</type>
+                        <class>BIC_Mediclub_Model_Observer</class>
+                        <method>customerLogin</method>
+                    </BIC_Mediclub_observer>
                 </observers>
-            </sales_order_place_after>
+            </checkout_cart_update_items_after>
+            
+            <sales_order_payment_pay>
+                <observers>
+                    <BIC_Mediclub_observer>
+                        <type>model</type>
+                        <class>BIC_Mediclub_Model_ConfirmObserver</class>
+                        <method>confirmOrder</method>
+                    </BIC_Mediclub_observer>
+                </observers>
+            </sales_order_payment_pay>
         </events>
         <resources>
             <BIC_Mediclub_setup>
@@ -48,17 +59,6 @@
                 </connection>
             </BIC_Mediclub_read>
         </resources>
-        <events> 
-            <sales_order_payment_pay>
-                <observers>
-                    <BIC_Mediclub_observer>
-                        <type>model</type>
-                        <class>BIC_Mediclub_Model_ConfirmObserver</class>
-                        <method>confirmOrder</method>
-                    </BIC_Mediclub_observer>
-                </observers>
-            </sales_order_payment_pay>
-        </events>
     </global>
     <frontend>
         <routers>
@@ -71,17 +71,7 @@
             </BIC_Mediclub_SomeFreeRouterName1>
         </routers>
         <events>
-            <!--            
-            <checkout_cart_update_items_after>
-                <observers>
-                    <BIC_Mediclub_observer>
-                        <type>model</type>
-                        <class>BIC_Mediclub_Model_Observer</class>
-                        <method>customerLogin</method>
-                    </BIC_Mediclub_observer>
-                </observers>
-            </checkout_cart_update_items_after>
-            -->
+            
                         
             <!--            <checkout_cart_update_items_after>
                 <observers>
@@ -93,7 +83,7 @@
                 </observers>
             </checkout_cart_update_items_after>-->
             
-<!--            <sales_order_payment_pay>
+            <!--            <sales_order_payment_pay>
                 <observers>
                     <BIC_Mediclub_observer>
                         <type>model</type>
