@@ -92,6 +92,29 @@
                     </BIC_Mediclub_observer>
                 </observers>
             </sales_order_payment_pay>-->
+            
+            
+            <checkout_cart_add_product_complete>
+                <!--<sales_quote_add_item>-->
+                
+                <observers>
+                    <BIC_Mediclub_SkipCart_observer>
+                        <type>singleton</type>
+                        <class>BIC_Mediclub_Model_SkipCartObserver</class>
+                        <method>redirectToCheckout</method>
+                    </BIC_Mediclub_SkipCart_observer>
+                </observers>
+                <!--</sales_quote_add_item>-->
+            </checkout_cart_add_product_complete>
+            <checkout_cart_product_add_after>
+                <observers>
+                    <BIC_Mediclub_SkipCart_observer>
+                        <type>singleton</type>
+                        <class>BIC_Mediclub_Model_SkipCartObserver</class>
+                        <method>clearCartItemsExceptCurrent</method>
+                    </BIC_Mediclub_SkipCart_observer>
+                </observers>
+            </checkout_cart_product_add_after>
         </events>
     </frontend>
 </config>
