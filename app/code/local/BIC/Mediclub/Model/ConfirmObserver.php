@@ -15,9 +15,9 @@ class BIC_Mediclub_Model_ConfirmObserver {
 
         echo $observer->toJson();
 
-        echo '<hr/>order<br/>';
+//        echo '<hr/>order<br/>';
         $orderData = $observer->getPayment()->getOrder()->getData();
-        var_dump($orderData);
+//        var_dump($orderData);
 //        var_dump(get_class_methods($observer->getPayment()->getOrder()->getData()));
 
         $customerId = $orderData['customer_id'];
@@ -35,7 +35,7 @@ class BIC_Mediclub_Model_ConfirmObserver {
             Mage::getModel('BIC_Mediclub_Model_ConfirmOrderSms')
                     ->confirmOrderSms($mobileNumber, $orderId);
         }
-        exit();
+//        exit();
         return true;
     }
 

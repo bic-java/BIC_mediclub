@@ -10,14 +10,14 @@ class BIC_Mediclub_Model_ConfirmOrderSms {
      * @return boolean
      */
     public function confirmOrderSms($mobileNumber, $orderId) {
-        $url = 'http://localhost/~eislas/dumpRequest.php';
-//        $url = 'https://api.infobip.com/sms/1/text/single';
+//        $url = 'http://localhost/~eislas/dumpRequest.php';
+        $url = 'https://api.infobip.com/sms/1/text/single';
         $apiUser = 'MedicaVrim';
         $apiPassword = 'Infobip99';
         $fields = array(
             'from' => 'MediClub',
             'to' => $mobileNumber,
-            'text' => "Ya puedes canjear tu pedido $orderId, se ha confirmado el pago"
+            'text' => "Ya puedes canjear tu pedido $orderId, se ha confirmado el pago. MedicaClub"
         );
 
 

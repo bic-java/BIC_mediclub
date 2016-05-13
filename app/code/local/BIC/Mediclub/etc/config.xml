@@ -8,14 +8,17 @@
     </modules>
     <global>
         <helpers>
-            <confirm_order_sms>
+            <!--            <confirm_order_sms>
                 <class>BIC_Mediclub_ConfirmOrderSms_Helper</class>
-            </confirm_order_sms>
+            </confirm_order_sms>-->
         </helpers>
         <models>
-            <BIC_Mediclub_ConfirmOrderSms>
+            <!--            <BIC_Mediclub_ConfirmOrderSms>
                 <class>BIC_Mediclub_ConfirmOrderSms_Model</class>
-            </BIC_Mediclub_ConfirmOrderSms>
+            </BIC_Mediclub_ConfirmOrderSms>-->
+            <BIC_Mediclub_Model>
+                <class>BIC_Mediclub_Model</class>
+            </BIC_Mediclub_Model>
         </models>
         <events>
             <checkout_cart_update_items_after>
@@ -117,4 +120,16 @@
             </checkout_cart_product_add_after>
         </events>
     </frontend>
+    <crontab>
+        <jobs>
+            <BIC_Mediclub_CronNotify>
+                <schedule>
+                    <cron_expr>* * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>BIC_Mediclub_Model/CronNotify::notifyCodeExpiration</model>
+                </run>
+            </BIC_Mediclub_CronNotify>
+        </jobs>
+    </crontab>
 </config>

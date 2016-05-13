@@ -7,8 +7,7 @@ $installer = $this;
 
 $installer->startSetup();
 
-$runed = $installer->run("
-
+//$runed = $installer->run("
 // DROP TABLE IF EXISTS {$this->getTable('web')};
 //    ");
 
@@ -31,7 +30,7 @@ $installer->addAttribute("customer", "mobile_number", array(
     "default" => "",
     "frontend" => "",
     "unique" => false,
-    "note" => "Para recibir notificaciones via sms proporciona tu numero celular"
+    "note" => "Para recibir notificaciones via sms proporciona tu numero celular a 10 digitos"
 ));
 
 $attribute = Mage::getSingleton("eav/config")->getAttribute("customer", "mobile_number");
