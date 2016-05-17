@@ -16,7 +16,7 @@ class BIC_Mediclub_Model_ConfirmOrderSms {
         $apiPassword = 'Infobip99';
         $fields = array(
             'from' => 'MediClub',
-            'to' => $mobileNumber,
+            'to' => '52'.$mobileNumber,
             'text' => "Ya puedes canjear tu pedido $orderId, se ha confirmado el pago. MedicaClub"
         );
 
